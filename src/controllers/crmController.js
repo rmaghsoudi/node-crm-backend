@@ -31,3 +31,14 @@ export const getContact = (req, res) => {
      res.json(contact);
    });
  }
+
+ export const updateContact = (req, res) => {
+   // findOneAndUpdate( ObjectId, updateParams, new: true -returns the updated object,
+  //  useFindAndModify: false -uses new functions as opposed to deprecated ones )
+  Contact.findOneAndUpdate({ _id: req.params.id }, req.body, { new: true, useFindAndModify: false },  (err, contact) => {
+     if (err) {
+       res.send(err)
+     }
+     res.json(contact);
+   });
+ }
