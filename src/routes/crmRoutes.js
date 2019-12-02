@@ -1,6 +1,7 @@
 import { 
   addNewContact,
-  getContacts 
+  getContacts,
+  getContact
 } from '../controllers/crmController';
 
 const routes = (app) => {
@@ -15,6 +16,8 @@ const routes = (app) => {
       .post(addNewContact);
 
   app.route('/contact/:id')
+      .get(getContact)
+
       .patch((req, res) => 
       res.send("PATCH request successful!"))
 
